@@ -15,94 +15,54 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class UserService {
+    private final UserMapper userMapper;
+    private final UserRepository userRepository;
+    private final FollowRepository followRepository;
 
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
-
-    private static final String UserService = "UserService";
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private JWTService jwtService;
-
-    @Autowired
-    AuthenticationManager authenticationManager;
-
-    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
-    public ResponseEntity<UserDTO> register(UserRequest userRequest) {
-        logger.info("INITIAL,session_id,{},func_get_args(),REQUEST RECEIVED,{},{}, {}, {},args.get(0)", UserService, null, false, true, userRequest);
-
-        if (userRequest.getFirstName() == null || userRequest.getLastName() == null || userRequest.getUsername() == null || userRequest.getPassword() == null || userRequest.getEmail() == null) {
-            sendBadResponse("Please fill in all required fields");
-        }
-
-        if (userRepository.findByUsername(userRequest.getUsername()) != null) {
-            sendBadResponse("Username already exists");
-        }
-
-        if (userRepository.findByEmail(userRequest.getEmail()) != null) {
-            sendBadResponse("Email already exists");
-        }
-
-        if (!Objects.equals(userRequest.getPassword(), userRequest.getPasswordConfirm())) {
-            sendBadResponse("Passwords do not match");
-        }
-
-        Users userDetails = new Users();
-
-        userDetails.setFirstName(userRequest.getFirstName());
-        userDetails.setLastName(userRequest.getLastName());
-        userDetails.setEmail(userRequest.getEmail());
-        userDetails.setUsername(userRequest.getUsername());
-        userDetails.setPassword(bCryptPasswordEncoder.encode(userRequest.getPassword()));
-        userDetails.setActive(true);
-
-        userRepository.save(userDetails);
-
-        UserDTO user = new UserDTO();
-
-        user.setStatus("200");
-        user.setRequestStatus("success");
-        user.setMessage("User registered successfully");
-        user.setUsers(userDetails);
-
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public UserService(UserMapper userMapper, UserRepository userRepository, FollowRepository followRepository) {
+        this.userMapper = userMapper;
+        this.userRepository = userRepository;
+        this.followRepository = followRepository;
     }
 
-    public ResponseEntity<UserDTO> login(UserRequest userRequest) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userRequest.getUsername(), userRequest.getPassword()));
+    public List<UserResponse> getAll(){
 
-        if (!authentication.isAuthenticated()) {
-            sendBadResponse("Invalid username or password");
-        }
-
-        Users user = new Users();
-
-        user = userRepository.findByUsername(user.getUsername());
-        String token =  jwtService.generateToken(user.getUsername());
-
-        UserDTO userDTO = new UserDTO();
-        userDTO.setStatus("200");
-        userDTO.setRequestStatus("success");
-        userDTO.setMessage("User logged in successfully");
-        userDTO.setToken(token);
-        userDTO.setUsers(user);
-
-        return new ResponseEntity<>(userDTO, HttpStatus.OK);
+        return userMapper.usersToResponses(userRepository.findAll());
+    }
+    public UserResponse getResponseById(int id){
+        User user = userRepository.findById(id).orElse(null);
+        return userMapper.userToResponse(user);
     }
 
-    //    implement send-bad-response
-    public void sendBadResponse(String message) {
-        UserDTO user = new UserDTO();
-        user.setStatus("400");
-        user.setRequestStatus("failed");
-        user.setMessage(message);
-        new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+    public UserResponse getByEmail(String email){
+        User user = userRepository.findByEmail(email);
+        return userMapper.userToResponse(user);
     }
 
+    public List<UserFollowingResponse> getUserFollowing(int userId){
+        return userMapper.followsToFollowingResponses(followRepository.findAllByUser_Id(userId));
+    }
+
+    public boolean isFollowing(int userId,int followingId){
+        Optional<Follow> follow = followRepository.findByUser_IdAndFollowing_Id(userId,followingId);
+        return follow.isPresent();
+    }
+
+    public User getById(int id){
+        return userRepository.findById(id).get();
+    }
+    public void add(UserAddRequest userAddRequest){
+        User user = userMapper.requestToUser(userAddRequest);
+        userRepository.save(user);
+    }
+
+    public void delete(int id){
+        userRepository.deleteById(id);
+    }
 }
