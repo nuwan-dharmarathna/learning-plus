@@ -1,0 +1,326 @@
+/* StoryCard.css - Blue Theme version */
+.story-card {
+  min-width: 120px;
+  width: 130px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 80, 160, 0.15);
+  margin-right: 16px;
+  flex-shrink: 0;
+  background-color: #f0f6fc;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 80, 160, 0.25);
+}
+
+.story-image-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.story-author {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 60, 120, 0.2);
+  width: 40px;
+  height: 40px;
+}
+
+.story-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 50, 100, 0.6), transparent);
+  color: white;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 0 0 16px 16px;
+}
+
+/* TopBox.css */
+.topbox-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 80, 160, 0.08);
+  padding: 24px;
+  margin-bottom: 32px;
+  border-top: 4px solid #64b5f6;
+}
+
+.topbox-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dbeafe;
+}
+
+.stories-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 12px 0;
+  gap: 16px;
+  scrollbar-width: thin;
+}
+
+.stories-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.stories-container::-webkit-scrollbar-thumb {
+  background-color: #90caf9;
+  border-radius: 8px;
+}
+
+/* My Story Card */
+.my_story_card {
+  min-width: 120px;
+  width: 130px;
+  height: 200px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #64b5f6, #2196f3);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+  flex-shrink: 0;
+}
+
+.my_story_card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(33, 150, 243, 0.4);
+}
+
+.create-icon {
+  font-size: 32px;
+  margin-bottom: 14px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-text {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Modal Story Styles */
+.story-view-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-image-wrapper {
+  width: 100%;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(0, 80, 160, 0.15);
+}
+
+.story-full-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-details {
+  padding: 12px 0;
+}
+
+.story-details h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #1565c0;
+}
+
+.story-details p {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.story-timestamp {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #64b5f6;
+}
+
+/* Image Upload Editor */
+.story-image-editor {
+  width: 100%;
+  height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-color: #e3f2fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #90caf9;
+}
+
+.edit-story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.image-uploading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(33, 150, 243, 0.05);
+}
+
+/* Upload Area */
+.image-upload-area {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #f0f8ff;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  border: 2px dashed #90caf9;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.upload-placeholder:hover {
+  border-color: #42a5f5;
+}
+
+.upload-placeholder p {
+  margin-top: 10px;
+  color: #5c93c4;
+}
+
+.uploading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 240px;
+}
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-preview {
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #bbdefb;
+}
+
+/* Badge & Verified */
+.health-tip-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 80, 160, 0.9);
+  color: white;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 0 0 0 12px;
+}
+
+.verified-content {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #42a5f5;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* New Content Pulse */
+.story-card.new-content::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 14px;
+  height: 14px;
+  background-color: #64b5f6;
+  border-radius: 50%;
+  z-index: 2;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(100, 181, 246, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(100, 181, 246, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(100, 181,
+      246,
+      0
+    );  
+  }
+}

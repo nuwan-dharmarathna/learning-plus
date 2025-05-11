@@ -1,0 +1,139 @@
+.skill-plan-card {
+  background: #f5faff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(30, 136, 229, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  margin-top: 12px;
+  border-left: 4px solid #1e88e5;
+}
+
+.skill-plan-card:hover {
+  box-shadow: 0 6px 20px rgba(30, 136, 229, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Header */
+.skill-plan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.skill-plan-title {
+  flex-grow: 1;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 12px;
+  color: #1e3a5f;
+}
+
+.skill-plan-checkbox {
+  transform: scale(1.2);
+  accent-color: #1e88e5;
+}
+
+/* Buttons */
+.skill-plan-edit-btn,
+.skill-plan-delete-btn {
+  color: #1e88e5;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.skill-plan-edit-btn:hover,
+.skill-plan-delete-btn:hover {
+  background-color: rgba(30, 136, 229, 0.1);
+}
+
+/* Body */
+.skill-plan-body {
+  font-size: 15px;
+  color: #37474f;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Metadata */
+.skill-plan-metadata {
+  display: flex;
+  justify-content: space-between;
+  color: #607d8b;
+  margin-bottom: 10px;
+}
+
+.skill-plan-tag {
+  background: #e3f2fd;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1976d2;
+}
+
+.skill-plan-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #546e7a;
+  background-color: #bbdefb;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* Resources */
+.skill-plan-resources {
+  margin-top: 10px;
+}
+
+.skill-plan-resources-label {
+  font-weight: 600;
+  color: #1e3a5f;
+  margin-bottom: 4px;
+}
+
+.skill-plan-resources-value {
+  color: #455a64;
+  white-space: pre-wrap;
+}
+
+/* Status */
+.skill-plan-status {
+  margin-top: 16px;
+  text-align: right;
+}
+
+.skill-plan-completed-tag,
+.skill-plan-pending-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.skill-plan-completed-tag {
+  background: #e0f7fa;
+  color: #00796b;
+}
+
+.skill-plan-pending-tag {
+  background: #e3f2fd;
+  color: #1e88e5;
+}
+
+/* Variants */
+.skill-plan-completed {
+  background-color: #edfdfd;
+}
+
+.skill-plan-active {
+  background-color: #f5faff;
+}

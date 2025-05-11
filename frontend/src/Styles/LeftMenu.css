@@ -1,0 +1,70 @@
+.left-menu {
+  position: fixed;
+  bottom: 0;            /* move to bottom */
+  left: 0;
+  right: 0;
+  height: 56px;         /* reduced height */
+  background: #eaf6fb;
+  color: #2c3e50;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);  /* top shadow since it's bottom nav */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* evenly space nav items */
+  padding: 0 8px;
+}
+
+.left-menu-header {
+  display: none; /* hide header in bottom nav version */
+}
+
+.left-menu-list {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.left-menu-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.left-menu-link {
+  color: #34495e;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.left-menu-item:hover .left-menu-link {
+  background-color: #d6eef8;
+  color: #3498db;
+}
+
+.left-menu-item.active .left-menu-link {
+  background-color: #d0eaf5;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.left-menu-active-indicator {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #3498db;
+  border-radius: 50%;
+}
