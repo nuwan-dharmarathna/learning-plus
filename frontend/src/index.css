@@ -1,0 +1,15 @@
+
+
+
+body {
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: auto;
+}
+
+code {
+  font-family: 'Figtree', monospace;
+}

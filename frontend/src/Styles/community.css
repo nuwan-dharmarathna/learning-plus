@@ -1,0 +1,57 @@
+.main {
+  display: flex;
+  width: 70%; /* Full width for responsiveness */
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center the main section */
+  position: relative;
+  background: linear-gradient(to bottom, #ef8ccf, #d9eff5); /* fixed "blackground" typo */
+  background-size: cover;
+  margin-top: 60px;
+  min-height: 100vh; /* Ensure full screen */
+  
+}
+
+/* Bubble base style */
+.bubble {
+  border-radius: 50%;
+  position: absolute;
+  bottom: -100px;
+  opacity: 0.6;
+  animation: moveBubbles 15s infinite ease-in;
+  filter: blur(1px); /* Optional blur effect */
+}
+
+/* Mixed bubble colors */
+.bubble:nth-child(1) {
+  width: 40px;
+  height: 40px;
+  left: 20%;
+  background: rgba(114, 188, 212, 0.5); /* light blue */
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  width: 60px;
+  height: 60px;
+  left: 40%;
+  background: rgba(255, 192, 203, 0.5); /* pink */
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+  width: 30px;
+  height: 30px;
+  left: 60%;
+  background: rgba(144, 238, 144, 0.5); /* light green */
+  animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+  width: 50px;
+  height: 50px;
+  left: 80%;
+  background: rgba(255, 255, 102, 0.5); /* pastel yellow */
+  animation-delay: 6s;
+}
