@@ -1,7 +1,3 @@
-# cooking-share
-
-# gym
-
 # 📚 Learning Plus - Skill-Sharing & Learning Platform
 
 Learning Plus is a full-stack web application that encourages people to **share and learn different skills** such as coding, cooking, photography, and DIY crafts. It's designed to help users grow and stay motivated through a collaborative learning experience.
